@@ -15,8 +15,14 @@ import org.antlr.v4.runtime.ANTLRInputStream;
 import org.antlr.v4.runtime.CommonTokenStream;
 import org.antlr.v4.runtime.tree.ParseTree;
 
+import tclisp.nodes.ApplicationNode;
+import tclisp.nodes.ConditionalNode;
+import tclisp.nodes.DefineNode;
+import tclisp.nodes.LambdaNode;
+import tclisp.nodes.ListNode;
 import tclisp.nodes.QuotationNode;
 import tclisp.nodes.TCLispNode;
+import tclisp.parser.MumblerParser.SymbolContext;
 
 import com.oracle.truffle.api.frame.FrameDescriptor;
 
@@ -55,12 +61,30 @@ public class Reader extends TCLispBaseVisitor<Object> {
     }
 
     @Override
-    public MumblerList<Object> visitList(MumblerParser.ListContext ctx) {
-        List<Object> forms = new ArrayList<>();
-        for (MumblerParser.FormContext form : ctx.form()) {
-            forms.add(this.visit(form));
+    public TCLispNode visitList(MumblerParser.ListContext ctx) {
+    	if (ctx.isEmpty()){
+    		return new ListNode();
         }
-        return MumblerList.list(forms);
+    	
+    	if (ctx.getChild(0) instanceof SymbolContext) {
+            switch (((SymbolContext)ctx.getChild(0)).SYMBOL().getSymbol().toString()) {
+	            case "define":
+	            	return new DefineNode(ctx.getChild(1));
+	            	break;
+	            case "lambda":
+	                return new LambdaNode(ctx.getChild(1));
+	                break;
+	            case "if":
+	                return new ConditionalNode(ctx.getChild(1));
+	                break;
+	            case "quote":
+	                return new QuotationNode(ctx.getChild(1));
+	                break;
+            }
+        
+        return new ApplicationNode(ctx.getChild(0),
+        		ctx.getChild(1));
+
     }
 
     @Override

@@ -59,7 +59,7 @@ public class MumblerParser extends Parser {
 		@Override public int getRuleIndex() { return RULE_file; }
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof MumblerVisitor ) return ((MumblerVisitor<? extends T>)visitor).visitFile(this);
+			if ( visitor instanceof TCLispVisitor ) return ((TCLispVisitor<? extends T>)visitor).visitFile(this);
 			else return visitor.visitChildren(this);
 		}
 	}
@@ -113,7 +113,7 @@ public class MumblerParser extends Parser {
 		public NumberContext(FormContext ctx) { copyFrom(ctx); }
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof MumblerVisitor ) return ((MumblerVisitor<? extends T>)visitor).visitNumber(this);
+			if ( visitor instanceof TCLispVisitor ) return ((TCLispVisitor<? extends T>)visitor).visitNumber(this);
 			else return visitor.visitChildren(this);
 		}
 	}
@@ -122,7 +122,7 @@ public class MumblerParser extends Parser {
 		public SymbolContext(FormContext ctx) { copyFrom(ctx); }
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof MumblerVisitor ) return ((MumblerVisitor<? extends T>)visitor).visitSymbol(this);
+			if ( visitor instanceof TCLispVisitor ) return ((TCLispVisitor<? extends T>)visitor).visitSymbol(this);
 			else return visitor.visitChildren(this);
 		}
 	}
@@ -133,7 +133,7 @@ public class MumblerParser extends Parser {
 		public QuoteContext(FormContext ctx) { copyFrom(ctx); }
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof MumblerVisitor ) return ((MumblerVisitor<? extends T>)visitor).visitQuote(this);
+			if ( visitor instanceof TCLispVisitor ) return ((TCLispVisitor<? extends T>)visitor).visitQuote(this);
 			else return visitor.visitChildren(this);
 		}
 	}
@@ -142,7 +142,7 @@ public class MumblerParser extends Parser {
 		public BoolContext(FormContext ctx) { copyFrom(ctx); }
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof MumblerVisitor ) return ((MumblerVisitor<? extends T>)visitor).visitBool(this);
+			if ( visitor instanceof TCLispVisitor ) return ((TCLispVisitor<? extends T>)visitor).visitBool(this);
 			else return visitor.visitChildren(this);
 		}
 	}
@@ -151,7 +151,7 @@ public class MumblerParser extends Parser {
 		public StringContext(FormContext ctx) { copyFrom(ctx); }
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof MumblerVisitor ) return ((MumblerVisitor<? extends T>)visitor).visitString(this);
+			if ( visitor instanceof TCLispVisitor ) return ((TCLispVisitor<? extends T>)visitor).visitString(this);
 			else return visitor.visitChildren(this);
 		}
 	}
@@ -165,7 +165,7 @@ public class MumblerParser extends Parser {
 		public ListContext(FormContext ctx) { copyFrom(ctx); }
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof MumblerVisitor ) return ((MumblerVisitor<? extends T>)visitor).visitList(this);
+			if ( visitor instanceof TCLispVisitor ) return ((TCLispVisitor<? extends T>)visitor).visitList(this);
 			else return visitor.visitChildren(this);
 		}
 	}

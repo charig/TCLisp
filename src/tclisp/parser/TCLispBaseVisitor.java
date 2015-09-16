@@ -5,14 +5,14 @@ import org.antlr.v4.runtime.misc.NotNull;
 import org.antlr.v4.runtime.tree.AbstractParseTreeVisitor;
 
 /**
- * This class provides an empty implementation of {@link MumblerVisitor},
+ * This class provides an empty implementation of {@link TCLispVisitor},
  * which can be extended to create a visitor which only needs to handle a subset
  * of the available methods.
  *
  * @param <T> The return type of the visit operation. Use {@link Void} for
  * operations with no return type.
  */
-public class TCLispBaseVisitor<T> extends AbstractParseTreeVisitor<T> implements MumblerVisitor<T> {
+public class TCLispBaseVisitor<T> extends AbstractParseTreeVisitor<T> implements TCLispVisitor<T> {
 	/**
 	 * {@inheritDoc}
 	 *

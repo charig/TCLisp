@@ -3,6 +3,6 @@
 	<classpathentry kind="src" path="src"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
 	<classpathentry kind="lib" path="antlr-runtime-4.5.1.jar"/>
-	<classpathentry kind="lib" path="/Users/guidochari/Documents/Projects/graal-compiler/truffle/build/truffle-api.jar" sourcepath="/Users/guidochari/Documents/Projects/graal-compiler/truffle/build/truffle-api.src.zip"/>
+	<classpathentry kind="lib" path="/home/guido/Documents/Projects/graal/truffle/build/truffle-api.jar" sourcepath="/Users/guidochari/Documents/Projects/graal-compiler/truffle/build/truffle-api.src.zip"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
